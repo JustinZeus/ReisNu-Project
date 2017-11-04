@@ -9,16 +9,17 @@ while ($row = mysqli_fetch_array($query))
 {
   echo "<table border = 1>";
   echo "<tr>";
-	echo "<td>".$row['Naam_reis']."</td>";
-  echo "<td>".$row['Prijs']."</td>";
-  echo "<td>".$row['Beschrijving']."</td>";
+  echo "<td rowspan='2'>image</td>";
+	echo "<td colspan='3'>".$row['Naam_reis']."</td>";
   echo "</tr>";
-  echo "</table>";
-  echo "<table>";
+  echo "<tr>";
+  echo "<td>".$row['Beschrijving']."</td>";
+  echo "<td>".$row['Prijs']."</td>";
   echo '<td><form action="reisbekijken.php" method="post">
     <button type="submit" name="naam" value="'.$row['Naam_reis'].'">Kies</button>
-</form><center></td>';
-echo "</table>";
-  echo "<br />";
+    </form><center></td>';
+  echo "</tr>";
+  echo "</table>";
 }
 ?>
+
