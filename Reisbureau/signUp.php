@@ -60,7 +60,7 @@
                 $dob = $_POST["Geboortedatum"];
                 $password = $_POST["Wachtwoord"];
                 $password_crypt = better_crypt($password);
-                $string = "INSERT INTO gebruikers (Email, Achternaam, Voornaam, Staat_huisnummer, Woonplaats, Postcode, Geboortedatum, Wachtwoord) VALUES ('$email','$achternaam','$voornaam','$huisnummer','$woonplaats','$postcode','$dob','$password_crypt')";
+                $string = "INSERT INTO gebruikers (Email, Achternaam, Voornaam, Staat_huisnummer, Woonplaats, Postcode, Geboortedatum, Wachtwoord) VALUES ('$email','$achternaam','$voornaam','$huisnummer','$woonplaats','$postcode','$dob','$password')";
                 $stringuser = "SELECT Email FROM gebruikers WHERE Email = '$email'";
                 $count = mysqli_query($DBConnect, $stringuser);
                 if (mysqli_num_rows($count) == 1)
@@ -70,7 +70,7 @@
                  
                 {
                     mysqli_query($DBConnect, $string);
-                    echo "you have succesfully registered";
+                    echo "Je bent succesvol geregistreerd.";
                 }
             }
         }
