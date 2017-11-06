@@ -15,7 +15,7 @@
         <h2> Accomodatie toevoegen </h2>
         <form  enctype="multipart/form-data" action="reis_toevoegen.php" method="post">
             <label class="formlabel">Plaats: </label><input type="text" name="Plaats"><br>
-            <label class="formlabel">Adres:: </label><input type="text" name="Adres"><br>
+            <label class="formlabel">Adres: </label><input type="text" name="Adres"><br>
             <label class="formlabel">Postcode:</label> <input type="text" name="Postcode"><br>
             <label class="formlabel">Naam: </label><input type="text" name="Naam"<br>
             <input class= "submit" type="submit" name="submit1">
