@@ -1,10 +1,12 @@
 <?php
+session_start();
+session_name("naam");
 echo "<h1>Betalingsgegevens</h1>";
-$naam = $_POST["naam"];
+$naam = $_SESSION["naam"];
 $vertrek = "18-10-2017";
 $aankomst = "11-10-2017";
 $mysql = @mysqli_connect('localhost', 'root', '', 'reisbureau');
-$sql 	= "SELECT `Naam_reis`,`Prijs`,`Beschrijving` FROM `reizen` WHERE Naam_reis = '$naam'";
+$sql 	= "SELECT `Naam_reis`,`Prijs` FROM `reizen` WHERE Naam_reis = '$naam'";
 $query 	= mysqli_query($mysql, $sql);
 
 while ($row = mysqli_fetch_array($query))
@@ -28,17 +30,18 @@ while ($row = mysqli_fetch_array($query))
   echo "</tr>";
   echo "<tr>";
   echo "<td>Betalings Methode</td>";
-  echo "<td>" ?><select value = "Methode">
-  <option value="IDEAL">IDEAL</option>
-  <option value="PayPAL">PayPal</option>
-</select><?php "</td>";
+  echo '<td><form><select value = "Methode">
+        <option value="IDEAL">IDEAL</option>
+        <option value="PayPAL">PayPal</option>
+        </select></form></td>';
   echo "</tr>";
   echo "</table>";
   echo "<br />";
   echo "<table>";
   echo '<td><form action="reiszoeken.php" method="post">
-    <button type="submit" name="naam" >Kies</button>
+    <button type="submit" name="naam" >Voltooi Betaling</button>
 </form><center></td>';
 echo "</table>";
 }
+mysqli_close ($mysql);
 ?>
