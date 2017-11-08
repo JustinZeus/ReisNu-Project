@@ -3,6 +3,8 @@ include "topinclude.php";
 require 'connect.php';
 echo "<h1>Bevestig gegevens</h1>";
 $naam = $_SESSION["naam"];
+$aankomst = $_SESSION['aankomst'];
+$vertrek = $_SESSION['vertrek'];
 $mysql = @mysqli_connect('localhost', 'root', '', 'reisbureau');
 $sql 	= "SELECT `Naam_reis`,`Prijs`,Prijs_per_nacht FROM `reizen` WHERE Naam_reis = '$naam'";
 $query 	= mysqli_query($mysql, $sql);
@@ -17,11 +19,11 @@ while ($row = mysqli_fetch_array($query))
   echo "</tr>";
   echo "<tr>";
   echo "<td>Aankomst Datum (dd-mm-yyyy)</td>";
-  echo "<td><input type='text' name='aankomst'><br></td>";
+  echo "<td><input type='text' name='aankomst' value='$aankomst' ><br></td>";
   echo "</tr>";
   echo "<tr>";
   echo "<td>Vertrek Datum (dd-mm-yyyy)</td>";
-  echo "<td><input type='text' name='vertrek'><br></td>";
+  echo "<td><input type='text' name='vertrek' value= '$vertrek' ><br></td>";
   echo "</tr>";
   echo "<tr>";
   echo "<td>Aantal Personen</td>";
@@ -43,11 +45,6 @@ while ($row = mysqli_fetch_array($query))
   echo "</table>";
 
 }
-if (isset($_POST['submit'])){
-checkdate($_POST['aankomst']);
-checkdate($_POST['vertrek']);
-}
-
 include "botinclude.php";
 mysqli_close ($mysql);
 ?>
