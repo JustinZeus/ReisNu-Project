@@ -38,20 +38,19 @@ if(isset($_POST['submit'])) {
 if(isset($_POST['Vervoer'])) {
 
 $checked_count2 = count($_POST['Vervoer']);
-echo "You have selected following ".$checked_count2." option(s): <br/>";
 if ($checked_count2==1) {
   foreach($_POST['Vervoer'] as $selected2) {
-  echo "<p>".$selected2 ."</p>";
   $vervoer = "Vervoer = '$selected2'";
-  echo "$vervoer";
-}
 }
 }
 else {
   $vervoer = "Vervoer = 'Eigen Vervoer' OR Vervoer = 'Vliegtuig'";
 }
 }
-
+else {
+  $vervoer = "Vervoer = 'Eigen Vervoer' OR Vervoer = 'Vliegtuig'";
+}
+}
 
  ?>
 
