@@ -3,16 +3,18 @@ include "topinclude.php";
 
 // het bepalen van de placeholder van aankomst en vertrek, zodat duidelijk is als hij is ingevuld
 if (isset($_POST['aankomst'])) {
-  $PlaceAankomst = $_POST['aankomst'];
-  $_SESSION['aankomst'] = $PlaceAankomst;
+  $PlaceAankomst = 'value = '.$_POST["aankomst"].'';
+  $Aankomst = $_POST['aankomst'];
+  $_SESSION['aankomst'] = $Aankomst;
 }
 else {
-$PlaceAankomst = "Aankomst Datum";
+$PlaceAankomst = "placeholder='Aankomst Datum'";
 }
 
 if (isset($_POST['vertrek'])) {
-  $PlaceVertrek= $_POST['vertrek'];
-  $_SESSION['vertrek'] = $PlaceVertrek;
+  $PlaceVertrek = 'value = '.$_POST["vertrek"].'';
+  $Vertrek = $_POST['aankomst'];
+  $_SESSION['aankomst'] = $Vertrek;
 }
 else {
 $PlaceVertrek = "Vertrek Datum";
@@ -20,21 +22,20 @@ $PlaceVertrek = "Vertrek Datum";
 
 // het bepalen van de placeholder van prijslaag en prijshoog, zodat duidelijk is als hij is ingevuld
 if (isset($_POST['prijslaag'])) {
-  $PlacePrijslaag = $_POST['prijslaag'];
+  $PlacePrijslaag = 'value = '.$_POST["prijslaag"].'';
 }
 else {
-$PlacePrijslaag = "Vanaf Prijs";
+$PlacePrijslaag = "placeholder='Vanaf Prijs'";
 }
 
 if (isset($_POST['prijshoog'])) {
-  $PlacePrijshoog= $_POST['prijshoog'];
+  $PlacePrijshoog = 'value = '.$_POST["prijshoog"].'';
 }
 else {
-$PlacePrijshoog = "Tot Prijs";
+$PlacePrijshoog = "placeholder='Tot Prijs'";
 }
 
 // Standaard waarden geven aan $vervoer voor sorteren op vervoer
-if(isset($_POST['submit'])) {
 if(isset($_POST['Vervoer'])) {
 
 $checked_count2 = count($_POST['Vervoer']);
@@ -50,7 +51,7 @@ else {
 else {
   $vervoer = "Vervoer = 'Eigen Vervoer' OR Vervoer = 'Vliegtuig'";
 }
-}
+
 
  ?>
 
@@ -69,8 +70,8 @@ else {
 
   <label> <b>Reisperiode</b><br> Zoeken op exacte datum.<br>
     <?php
-    echo"<input type='text' name= 'aankomst' placeholder= '$PlaceAankomst'  ><br>";
-    echo"<input type='text' name= 'vertrek'  placeholder= '$PlaceVertrek'  ><br><br>";
+    echo"<input type='text' name= 'aankomst' $PlaceAankomst  ><br>";
+    echo"<input type='text' name= 'vertrek'  $PlaceVertrek  ><br><br>";
     ?>
 
   <label> <b>Vervoer</b></label><br>
@@ -79,8 +80,8 @@ else {
 
   <label> <b>Prijs</b></label><br>
   <?php
-    echo"<input type='text' name= 'prijslaag' placeholder='$PlacePrijslaag' ><br>";
-    echo"<input type='text' name= 'prijshoog' placeholder='$PlacePrijshoog' ><br><br>";
+    echo"<input type='text' name= 'prijslaag' $PlacePrijslaag ><br>";
+    echo"<input type='text' name= 'prijshoog' $PlacePrijshoog ><br><br>";
     ?>
     <input type="submit" name="submit" Value="Submit"/>
 </form>
