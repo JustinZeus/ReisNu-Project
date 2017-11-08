@@ -1,5 +1,58 @@
 <?php
 include "topinclude.php";
+
+// het bepalen van de placeholder van aankomst en vertrek, zodat duidelijk is als hij is ingevuld
+if (isset($_POST['aankomst'])) {
+  $PlaceAankomst = $_POST['aankomst'];
+  $_SESSION['aankomst'] = $PlaceAankomst;
+}
+else {
+$PlaceAankomst = "Aankomst Datum";
+}
+
+if (isset($_POST['vertrek'])) {
+  $PlaceVertrek= $_POST['vertrek'];
+  $_SESSION['vertrek'] = $PlaceVertrek;
+}
+else {
+$PlaceVertrek = "Vertrek Datum";
+}
+
+// het bepalen van de placeholder van prijslaag en prijshoog, zodat duidelijk is als hij is ingevuld
+if (isset($_POST['prijslaag'])) {
+  $PlacePrijslaag = $_POST['prijslaag'];
+}
+else {
+$PlacePrijslaag = "Vanaf Prijs";
+}
+
+if (isset($_POST['prijshoog'])) {
+  $PlacePrijshoog= $_POST['prijshoog'];
+}
+else {
+$PlacePrijshoog = "Tot Prijs";
+}
+
+// Standaard waarden geven aan $vervoer voor sorteren op vervoer
+if(isset($_POST['submit'])) {
+if(isset($_POST['Vervoer'])) {
+
+$checked_count2 = count($_POST['Vervoer']);
+echo "You have selected following ".$checked_count2." option(s): <br/>";
+if ($checked_count2==1) {
+  foreach($_POST['Vervoer'] as $selected2) {
+  echo "<p>".$selected2 ."</p>";
+  $vervoer = "Vervoer = '$selected2'";
+  echo "$vervoer";
+}
+}
+}
+else {
+  $vervoer = "Vervoer = 'Eigen Vervoer' OR Vervoer = 'Vliegtuig'";
+}
+}
+
+
  ?>
 
 <div id="">
@@ -16,16 +69,20 @@ include "topinclude.php";
     <input type="checkbox" name="Landen[]" value="Sri Lanka"> Sri Lanka<br><br>
 
   <label> <b>Reisperiode</b><br> Zoeken op exacte datum.<br>
-    <input type="text" name= "aankomst" placeholder="Aankomst Datum" ><br>
-    <input type="text" name= "vertrek" placeholder="Vertrek Datum" ><br><br>
+    <?php
+    echo"<input type='text' name= 'aankomst' placeholder= '$PlaceAankomst'  ><br>";
+    echo"<input type='text' name= 'vertrek'  placeholder= '$PlaceVertrek'  ><br><br>";
+    ?>
 
   <label> <b>Vervoer</b></label><br>
     <input type="checkbox" name="Vervoer[]" value="Vliegtuig"> Vliegtuig<br>
     <input type="checkbox" name="Vervoer[]" value="Eigen Vervoer"> Eigen Vervoer<br><br>
 
   <label> <b>Prijs</b></label><br>
-    <input type="text" name= "prijslaag" placeholder="Vanaf Prijs" ><br>
-    <input type="text" name= "prijshoog" placeholder="Tot Prijs" ><br><br>
+  <?php
+    echo"<input type='text' name= 'prijslaag' placeholder='$PlacePrijslaag' ><br>";
+    echo"<input type='text' name= 'prijshoog' placeholder='$PlacePrijshoog' ><br><br>";
+    ?>
     <input type="submit" name="submit" Value="Submit"/>
 </form>
 </div>
@@ -44,32 +101,13 @@ $landen =array($selected);
 }
 }
 }
-// Voor label reisperiode
 
 
-
-
-// Voor label vervoer
-if(isset($_POST['submit'])) {
-if(!empty($_POST['Vervoer'])) {
-
-$checked_count2 = count($_POST['Vervoer']);
-echo "You have selected following ".$checked_count2." option(s): <br/>";
-if ($checked_count2==1) {
-  foreach($_POST['Vervoer'] as $selected2) {
-  echo "<p>".$selected2 ."</p>";
-  $vervoer = "Vervoer = $selected2";
-}
-}
-}
-}
-
-// Voor label Prijs
 
 
 // SQL deel
 $mysql = @mysqli_connect('localhost', 'root', '', 'reisbureau');
-$sql 	= "SELECT `Naam_reis`,`Prijs`,`Beschrijving`,`Image`,`Vervoer` FROM `reizen`";
+$sql 	= "SELECT `Naam_reis`,`Prijs`,`Beschrijving`,`Image`,`Vervoer`,`Land` FROM `reizen` WHERE $vervoer ";
 $query 	= mysqli_query($mysql, $sql);
 
 
