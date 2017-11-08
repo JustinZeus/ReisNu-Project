@@ -11,7 +11,6 @@
 
 <?php
 
-//assign the connection and selected database to a variable
      $DBConnect = mysqli_connect("127.0.0.1", "root", "", "reisbureau");
      if ($DBConnect === FALSE)
      {
@@ -41,11 +40,6 @@ $rs = mysqli_query($DBConnect,"SELECT * FROM gebruikers");
 
             }
         echo "</TABLE>";
-
-
-
-
-
 
     }else{
       echo '<p>';
