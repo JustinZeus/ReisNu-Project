@@ -102,9 +102,6 @@ $landen =array($selected);
 }
 }
 
-
-
-
 // SQL deel
 $mysql = @mysqli_connect('localhost', 'root', '', 'reisbureau');
 $sql 	= "SELECT `Naam_reis`,`Prijs`,`Beschrijving`,`Image`,`Vervoer`,`Land` FROM `reizen` WHERE $vervoer ";
