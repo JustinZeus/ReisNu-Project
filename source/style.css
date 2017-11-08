@@ -1,0 +1,299 @@
+/* stylesheet */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+before,
+*:after {
+  box-si*,
+*:bezing: inherit;
+}
+
+body {
+position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+	padding: 5px;
+} 
+
+#wrapper {
+	background: #FFF;
+    margin: 0 auto;
+    font: 14px/1.4 'Rosarivo,Helvetica, Arial, sans-serif', sans-serif;
+	position: relative;
+	min-height: 100%;
+	border: 4px solid #4F95BA;
+	border-radius: 45px;
+	overflow: hidden;
+}
+
+.clear {
+	clear: both;
+}
+
+
+
+
+/* header */
+
+#header {
+	background-image: url(clouds.jpg);
+	background-size:cover;
+	min-height: 225px;
+}
+
+.logo {
+	float: left;
+	background-color: #fff;
+}
+
+#menubalk {
+	min-height: 47px;
+	background-color: #FF3900;
+	margin-top: -47px;
+}
+
+#menu, #menu ul
+{
+	list-style: none;
+    background-color: #FF3900;
+	padding: 0;
+	margin: 0;
+	z-index: 2;
+}
+
+#menu li
+{
+	float: left;
+	position: relative;
+	width: 110px;
+	
+}
+
+#menu ul
+{
+	position: absolute;
+	padding: 0;
+	display: none;
+}
+#menu ul li
+{
+	float: none;
+	margin: 0;
+	padding: 0;
+}
+#menu a:link, #menu a:visited
+{
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	padding: 14px 16px;
+}
+#menu li:hover
+{
+	background-color: #C52C00;
+}
+#menu li:hover ul
+{
+	display: block;
+}
+
+
+
+.welcome{
+    float:right;
+    margin-right:40px;
+    margin-top:20px;
+    color: #fff;
+    text-align: right;
+	font-size: 18px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/* content */
+
+.container {
+	background-color: white;
+	display:block;
+	padding: 10px;
+	width: 720px;
+	margin: 0 auto;
+}
+
+
+/* login form */
+.content-form {
+	width: 360px;
+	padding: 8% 0 0;
+	margin: auto;
+}
+
+.form{
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	max-width: 360px;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+}
+
+
+.form input {
+	outline: 0;
+	background: #f2f2f2;
+	width: 100%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+.form button {
+	text-transform: uppercase;
+	outline: 0;
+	background: #4F95BA;
+	width: 100%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+	background: #C52C00;
+}
+
+.box {
+	width: 720px;
+	padding: 50% 0 0;
+	margin: auto;	
+}
+
+/* registreren */
+
+.content-form2 {
+	width: 720px;
+	padding: 4% 0 0 0;
+	margin: auto;
+}
+
+.form2 {
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	max-width: 720px;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+}
+
+/* usertable */
+.content-usertable{
+	width: 80%;
+	padding: 4% 0 0 0;
+	margin: auto;
+}
+.usertable 	{
+	background: #FFFFFF;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+	
+}
+
+
+.form2 input {
+	outline: 0;
+	background: #f2f2f2;
+	width: 100%;
+	border-radius: 1px;
+	border-color: #f0f0f0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+select {
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-color: #fff; /* fallback color if gradients are not supported */
+    border: solid #f0f0f0;
+    border-radius: 2px;
+	box-sizing: border-box;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    color: #555;
+    font-size: 18px;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+	width: 100%;
+}
+	
+	
+.form2 button {
+	text-transform: uppercase;
+	outline: 0;
+	background: #4F95BA;
+	width: 100%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+}
+.form2 button:hover,.form button:active,.form button:focus {
+	background: #C52C00;
+}
+
+/* footer */
+* {
+  box-sizing: border-box;
+}
+	
+.footer{
+	background: #FF3900;
+    min-height: 250px;
+	position: absolute;
+	right: 0;
+	bottom: -190;
+	left: 0;
+	padding: 1rem;
+}
+
+.footertext {
+	margin-left: 33%;
+	color: white;
+	font-size: 17px;
+}
